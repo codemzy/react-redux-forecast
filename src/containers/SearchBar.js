@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
     
     render() {
         return (
-            <form className="input-group" onSubmit={this._onFormSubmit.bind(this)}>
+            <form className="input-group search-bar" onSubmit={this._onFormSubmit.bind(this)}>
              <input type="search" className="form-control" placeholder="Location..." value={this.state.term} onChange={this._onInputChange.bind(this)} />
              <span className="input-group-btn">
                 <button type="submit" className="btn btn-secondary">Search</button>
