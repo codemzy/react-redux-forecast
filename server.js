@@ -6,6 +6,13 @@ app.use(express.static('public'));
 // set the port
 app.set('port', (8081));
 
+// allow cross-origin as get request from different port
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 require('dotenv').config();
 const APIKEY = process.env.WEATHER_KEY;
 

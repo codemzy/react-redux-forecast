@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_WEATHER = 'FETCH_WEATHER';
-const ROOT_URL = ':8081/api/forecast/';
+const ROOT_URL = window.location.protocol + "//" + window.location.hostname + ':8081/api/forecast/';
 
 export function fetchWeather(city) {
     const URL = ROOT_URL + city;
