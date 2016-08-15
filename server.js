@@ -27,9 +27,10 @@ app.route('/api/forecast/:location')
     .get(function(req, res) {
         var location = req.params.location;
         weather.setCity(location);
-    	weather.getWeatherForecastForDays(3, function(err, result){
+    	weather.getWeatherForecastForDays(5, function(err, result){
     	    if (err) {
     	        console.log(err);
+    	        res.status(500).send('Something broke!', err);
     	    } else {
     	        res.json(result);
     	    }
