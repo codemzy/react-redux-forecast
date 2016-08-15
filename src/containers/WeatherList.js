@@ -11,11 +11,23 @@ class WeatherList extends React.Component {
             const TEMPS = cityData.list.map((weather) => {
                 return weather.temp.day;
             });
+            const PRESSURE = cityData.list.map((weather) => {
+                return weather.pressure;
+            });
+            const HUMIDITY = cityData.list.map((weather) => {
+                return weather.humidity;
+            });
             return (
                 <tr key={index}>
                     <td>{cityData.city.name}</td>
                     <td>
-                        <Chart data={TEMPS} color='red' />
+                        <Chart data={TEMPS} color='red' units="&deg;c" />
+                    </td>
+                    <td>
+                        <Chart data={PRESSURE} color='orange' units="hPa" />
+                    </td>
+                    <td>
+                        <Chart data={HUMIDITY} color='blue' units="%" />
                     </td>
                 </tr>
             );
@@ -24,10 +36,10 @@ class WeatherList extends React.Component {
             <table className="table table-hover">
                 <thead>
                     <tr>
-                        <th>City</th>
-                        <th>Temperature</th>
-                        <th>Pressure</th>
-                        <th>Humidity</th>
+                        <th width="25%">City</th>
+                        <th width="25%">Temperature (&deg;c)</th>
+                        <th width="25%">Pressure (hPa)</th>
+                        <th width="25%">Humidity (%)</th>
                     </tr>
                 </thead>
                 <tbody>
